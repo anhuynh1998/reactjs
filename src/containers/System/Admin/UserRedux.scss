@@ -1,0 +1,32 @@
+.user-redux-container{
+    .user-redux-body{
+        .img-avart{
+           
+
+            .preview-Image{
+                            
+                    height: 100px;
+                    border: 1px solid;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    box-shadow: 2px 1px 1px 1px #888888;
+                    background-position: center;
+                    cursor: pointer;
+                }
+            }
+            .lable-upload{
+                font-size: 15px;
+                width: 80px;
+                height: 30px;
+                cursor: pointer;
+                background-color: #c2c9d3;
+                /* color: lightyellow; */
+                border-radius: 10px;
+                text-align: center;
+                &:hover{
+                    background-color: aqua;
+                }
+            }
+
+        }
+    }
