@@ -1,6 +1,7 @@
 import { reduce } from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import Slider from "react-slick";
 import * as actions from "../../../store/actions";
@@ -35,6 +36,12 @@ class Doctor extends Component {
       
         
     }
+    handelViewDetailDoctor = (doctor) => {
+        this.props.history.push(`/detail-doctor/${doctor.id}`)
+        console.log('check infor', doctor)
+
+        
+    }
 
     render() {
        
@@ -65,7 +72,7 @@ class Doctor extends Component {
                                 
                                    
                                 return(
-                                <div key={index} className='slide-child doctor-slide' >
+                                <div key={index} className='slide-child doctor-slide' onClick={()=>this.handelViewDetailDoctor(item)} >
                             <div className='bg-out'>
                                             <div className='bg-custom doctor '  style={{ backgroundImage: `url(${avatarImg})` }}  ></div>
 
@@ -112,4 +119,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Doctor);
+export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(Doctor)) ;

@@ -25,7 +25,8 @@ class HomePage extends Component {
     slidesToScroll: 1
   };
       return(<div> 
-          <HomeHeader settings={settings} />
+          <HomeHeader 
+              ishowBanner={true} />
           <Sepcialty settings={settings} />
           <MedicalFacility settings={settings} />
           <Doctor settings={settings} />

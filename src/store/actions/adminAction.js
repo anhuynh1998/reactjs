@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllCodes, createNewUserService, getAllUsers ,deleteUserSevice,getTopDoctorHome} from '../../services/userSevice'
+import { getAllCodes, createNewUserService, getAllUsers ,deleteUserSevice,getTopDoctorHome,getAllDoctor,createInfordoctor} from '../../services/userSevice'
 import { toast } from "react-toastify";
 
 // export const fetchGenderStart= () => ({
@@ -265,6 +265,84 @@ export const fetchTopDoctorSuccess = (data) => ({
 })
 export const fetchTopDoctorFails = () => ({
     type:actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+})
+//get all doctor
+export const fetchAllDoctor = () => {
+
+    
+ return  async(dispatch, getSate)=>
+    {
+     try {
+         let res = await getAllDoctor();
+         console.log('check prop ', res.data)
+         if (res.errCode === 0)
+         {
+             dispatch(fetchAllDoctorSuccess(res.data))
+         }
+         else
+         {
+             dispatch(fetchAllDoctorFails())
+             }
+         
+            
+       
+
+       
+    
+     } catch (e) {
+         dispatch(fetchAllDoctorFails())
+          
+       console.log(' fetchAllDoctorFails',e)
+    
+   }
+
+    }
+}
+export const fetchAllDoctorSuccess = (data) => ({
+    type: actionTypes.FETCH_DOCTOR_SUCCESS,
+    data
+    
+})
+export const fetchAllDoctorFails = () => ({
+    type:actionTypes.FETCH_DOCTOR_FAILS,
+})
+export const createDoctorInfora = (data) => {
+
+    
+ return  async(dispatch, getSate)=>
+    {
+     try {
+         let res = await createInfordoctor(data);
+       
+         if (res.errCode === 0)
+         {
+             dispatch(createDoctorInforSuccess(res.data))
+         }
+         else
+         {
+             dispatch(createDoctorInforFails())
+             }
+         
+            
+       
+
+       
+    
+     } catch (e) {
+         dispatch(createDoctorInforFails())
+          
+       console.log(' createDoctorInforFails',e)
+    
+   }
+
+    }
+}
+export const createDoctorInforSuccess = (data) => ({
+    type: actionTypes.SAVE_DOCTOR_INFOR_SUCCESS,
+    data
+})
+export const createDoctorInforFails = () => ({
+    type: actionTypes.SAVE_DOCTOR_INFOR_FAILED,
 })
     
 

@@ -5,6 +5,22 @@ import * as actions from '../../../store/actions';
 import { sortedLastIndex } from 'lodash';
 import { createLogger } from 'redux-logger';
 import Login from '../../Auth/Login';
+import MarkdownIt from 'markdown-it';
+import MdEditor from 'react-markdown-editor-lite';
+// import style manually
+import 'react-markdown-editor-lite/lib/index.css';
+
+// Register plugins if required
+// MdEditor.use(YOUR_PLUGINS_HERE);
+
+// Initialize a markdown parser
+const mdParser = new MarkdownIt(/* Markdown-it options */);
+
+// Finish!
+function handleEditorChange({ html, text }) {
+  console.log('handleEditorChange', html, text);
+}
+
 
 class TableUsers extends Component {
     constructor(props) {
@@ -45,11 +61,11 @@ class TableUsers extends Component {
 
     render() {
         let arrUsers = this.state.userRedux;   
-        console.log('check staet suser',arrUsers);
-   
+      
         
         return (
-            <div ><table id="customers">
+            <React.Fragment>
+                 <div ><table id="customers">
                 <tbody>
   <tr>
     <th>Id</th>
@@ -91,7 +107,11 @@ class TableUsers extends Component {
     
 
   
-</table></div>
+            </table></div>
+            <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+
+            </React.Fragment>
+           
            
       )
     }

@@ -88,6 +88,7 @@ class HomeHeader extends Component {
 
                   </div>
                 </div>
+                { this.props.ishowBanner===true && 
                 <div className='home-header-banner'>
                     <div className='content-up'>
                         
@@ -208,7 +209,7 @@ class HomeHeader extends Component {
                         
                     </div>
                    
-                </div>
+                </div>}
            
                 
                 

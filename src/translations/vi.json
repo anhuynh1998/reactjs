@@ -51,7 +51,7 @@
         },
         "admin" :{
             "user-manage": "Quản lí người dùng",
-            "manage-doctor": "Quản bác sĩ",
+            "manage-doctor": "Quản li bác sĩ",
             "manage-admin": "Quản lí admin",
             "crud": "crud user",
             "crud-redux":" crud user redux",
